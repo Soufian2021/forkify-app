@@ -130,6 +130,10 @@ const controlAddRecipe = async function (newRecipe) {
 // window.addEventListener('hashchange', controlRecipes);
 // window.addEventListener('load', controlRecipes);
 
+const newFeature = function () {
+  console.log('Welcome to the application :)');
+};
+
 // Implementing the pub/sub pattern
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -140,5 +144,6 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
   console.log('Test');
+  newFeature();
 };
 init();
