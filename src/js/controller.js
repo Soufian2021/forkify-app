@@ -11,12 +11,6 @@ import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 
-// https://forkify-api.herokuapp.com/v2
-
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -54,7 +48,6 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
 
     // 3) Render results
-    // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultsPage());
 
     // 4) Render initial pagination buttons
@@ -127,12 +120,6 @@ const controlAddRecipe = async function (newRecipe) {
 
   // location.reload();    // Fix the problem of upload recipe again and again
 };
-// window.addEventListener('hashchange', controlRecipes);
-// window.addEventListener('load', controlRecipes);
-
-const newFeature = function () {
-  console.log('Welcome to the application :)');
-};
 
 // Implementing the pub/sub pattern
 const init = function () {
@@ -143,7 +130,5 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  console.log('Test');
-  newFeature();
 };
 init();
